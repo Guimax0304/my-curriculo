@@ -1,0 +1,39 @@
+.education {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.educationList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.item {
+  background: #fff;
+  color: black;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item h3 {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.item p {
+  margin-bottom: 5px;
+}
+
+.item a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.item a:hover {
+  text-decoration: underline;
+}

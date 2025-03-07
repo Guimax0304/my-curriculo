@@ -1,0 +1,34 @@
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+/* Contêiner para centralizar a imagem */
+.profileContainer {
+  margin-bottom: 20px; /* espaço entre a foto e o texto */
+  display: flex;
+  justify-content: center;
+}
+
+/* Tornando a imagem circular */
+.profileImage {
+  border-radius: 50%; /* Borda arredondada */
+  object-fit: cover; /* Corta a imagem se necessário */
+  border: 2px solid #ccc; /* (opcional) uma borda fina de contorno */
+}
+
+/* Estilo do botão de download (já existente) */
+.downloadButton {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.downloadButton:hover {
+  background-color: #005bb5;
+}

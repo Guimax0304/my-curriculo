@@ -1,0 +1,50 @@
+.skills {
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* Título com mais margem inferior */
+.skills h2 {
+  margin-bottom: 20px;
+}
+
+/* Contêiner que engloba as setas e o carrossel */
+.carouselContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Aumenta a distância do título */
+  margin-top: 20px;
+}
+
+/* Carrossel horizontal: scroll horizontal e flex em linha */
+.skillsCarousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin: 0 15px; /* espaço maior para não colar nos botões */
+  padding: 10px;
+}
+
+/* Botões de setas */
+.arrowButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 15px; /* aumenta o espaçamento horizontal */
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowButton:hover {
+  background-color: #e0e0e0;
+}

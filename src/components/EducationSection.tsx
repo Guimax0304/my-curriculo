@@ -17,7 +17,7 @@ const EducationSection = () => {
     },
     {
       id: 2,
-      title: "Algoritmo",
+      title: "Curso de Algoritmo com Gustavo Guanabara",
       issuer: "Curso em Vídeo",
       date: "22/06/2023",
       code: "",

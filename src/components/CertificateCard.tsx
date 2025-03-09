@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import styles from "./CertificateCard.module.css";
+import styles from "../styles//CertificateCard.module.css";
 
 interface CertificateCardProps {
   title: string;

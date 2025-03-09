@@ -4,9 +4,8 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: center; /* ou left, se preferir */
 }
-
 
 .card h3 {
   font-size: 1.5rem;
@@ -14,7 +13,7 @@
 }
 
 .card p {
-  font-size: 1.0rem;
+  font-size: 1rem;
   margin-bottom: 5px;
 }
 

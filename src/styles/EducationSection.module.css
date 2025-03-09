@@ -37,3 +37,18 @@
 .item a:hover {
   text-decoration: underline;
 }
+
+.education h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.certificatesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: flex-start;
+  max-width: 1200px;
+    margin: 0 auto; /* centraliza a grid na página */
+  }

@@ -47,8 +47,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  justify-items: center;
-  align-items: flex-start;
+  align-items: start; /* ou stretch, conforme desejar */
   max-width: 1200px;
-    margin: 0 auto; /* centraliza a grid na página */
-  }
+  margin: 0 auto; /* Centraliza no meio da página */
+}

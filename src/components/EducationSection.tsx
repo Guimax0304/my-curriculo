@@ -17,10 +17,10 @@ const EducationSection = () => {
     },
     {
       id: 2,
-      title: "Algoritmo [40 Horas] - Curso em Vídeo",
+      title: "Algoritmo",
       issuer: "Curso em Vídeo",
-      date: "22 de junho de 2023",
-      code: "A2D92-6297-6",
+      date: "22/06/2023",
+      code: "",
       pdfLink: "/certificates/guilherme-viana-Algoritmo-Certificado-Curso-em-Video.pdf",
     },
     // Adicione mais certificados se quiser

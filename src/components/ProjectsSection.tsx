@@ -9,9 +9,9 @@ const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
-      title: "Projeto 1",
-      description: "Descrição do projeto 1",
-      link: "#",
+      title: "Clinica Django",
+      description: "Sistema de gerenciamento de clínica",
+      link: "https://clinica-django-056n.onrender.com",
     },
     {
       id: 2,

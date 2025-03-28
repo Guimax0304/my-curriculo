@@ -15,7 +15,7 @@ const HeroSection = () => {
         transition={{ duration: 0.6 }}
       >
         <Image
-          src="/perfil.jpg" // Caminho relativo à pasta /public
+          src="/perfil1.jpg" // Caminho relativo à pasta /public
           alt="Minha foto de perfil" // Descrição para acessibilidade
           width={200} // Largura desejada
           height={200} // Altura desejada

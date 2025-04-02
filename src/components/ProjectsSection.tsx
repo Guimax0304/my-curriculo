@@ -13,12 +13,6 @@ const ProjectsSection = () => {
       description: "Sistema de gerenciamento de clínica",
       link: "https://clinica-django-056n.onrender.com",
     },
-    {
-      id: 2,
-      title: "Projeto 2",
-      description: "Descrição do projeto 2",
-      link: "#",
-    },
     // Adicione mais projetos conforme necessário
   ];
 

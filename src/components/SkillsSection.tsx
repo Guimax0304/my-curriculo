@@ -19,6 +19,7 @@ import {
   SiNodedotjs,
   SiTypescript,
   SiBootstrap,
+  SiNextdotjs,
 } from "react-icons/si";
 
 const SkillsSection = () => {
@@ -68,6 +69,11 @@ const SkillsSection = () => {
             title="React"
             description="Biblioteca front-end"
             Icon={SiReact}
+          />
+          <SkillCard
+            title="Next.js"
+            description="Framework React com SSR"
+            Icon={SiNextdotjs}
           />
           <SkillCard
             title="Bootstrap"

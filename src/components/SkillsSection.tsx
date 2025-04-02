@@ -14,6 +14,11 @@ import {
   SiMysql,
   SiPython,
   SiReact,
+  SiDocker,
+  SiPostgresql,
+  SiNodedotjs,
+  SiTypescript,
+  SiBootstrap,
 } from "react-icons/si";
 
 const SkillsSection = () => {
@@ -60,14 +65,29 @@ const SkillsSection = () => {
             Icon={SiCss3}
           />
           <SkillCard
+            title="React"
+            description="Biblioteca front-end"
+            Icon={SiReact}
+          />
+          <SkillCard
+            title="Bootstrap"
+            description="Framework CSS"
+            Icon={SiBootstrap}
+          />
+          <SkillCard
             title="JavaScript"
             description="Linguagem de programação"
             Icon={SiJavascript}
           />
           <SkillCard
-            title="React"
-            description="Biblioteca front-end"
-            Icon={SiReact}
+            title="TypeScript"
+            description="JavaScript tipado"
+            Icon={SiTypescript}
+          />
+          <SkillCard
+            title="Node.js"
+            description="JavaScript no back-end"
+            Icon={SiNodedotjs}
           />
           <SkillCard
             title="Django"
@@ -80,17 +100,26 @@ const SkillsSection = () => {
             Icon={SiPython}
           />
           <SkillCard
+            title="C"
+            description="Linguagem de programação"
+            Icon={SiC}
+          />          
+          <SkillCard
             title="SQL"
             description="Banco de dados relacional"
             Icon={SiMysql}
           />
           <SkillCard
-            title="C"
-            description="Linguagem de programação"
-            Icon={SiC}
+            title="PostgreSQL"
+            description="Banco de dados relacional avançado"
+            Icon={SiPostgresql}
+          />
+          <SkillCard
+            title="Docker"
+            description="Containerização de aplicações"
+            Icon={SiDocker}
           />
         </motion.div>
-
         <button onClick={scrollRight} className={styles.arrowButton}>
           <ChevronRight size={24} />
         </button>

@@ -11,7 +11,7 @@ const ProjectsSection = () => {
       id: 1,
       title: "Clinica Django",
       description: "Sistema de gerenciamento de clínica",
-      link: "https://clinica-django-056n.onrender.com",
+      link: "https://guilhermevl-clinica-django.hf.space/usuarios/login/",
     },
     // Adicione mais projetos conforme necessário
   ];

@@ -48,3 +48,65 @@
 .arrowButton:hover {
   background-color: #e0e0e0;
 }
+
+/* ============================= */
+/*  CARD DE HABILIDADE (igual 3D)*/
+/* ============================= */
+
+/* Light mode — mesmo material do card 3D */
+.skillCard {
+  background: rgba(255, 255, 255, 0.70);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+
+  /* layout/tamanho */
+  min-width: 280px;
+  max-width: 320px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  /* transições suaves */
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    transform .15s ease;
+}
+
+.skillCard:hover {
+  transform: translateY(-2px);
+}
+
+/* Dark mode — igual ao card 3D (CSS Modules: usar :global) */
+:global(html.dark) .skillCard {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Elementos internos (opcional) */
+.skillIcon {
+  font-size: 36px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skillTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.skillDesc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  text-align: center;
+}

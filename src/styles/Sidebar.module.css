@@ -1,92 +1,51 @@
-/* Conteúdo já existente */
+/* Estilo base (Light) */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 250px;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #f1f1f1;   /* cinza claro */
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s;
 }
 
-.sidebar nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar nav li {
-  margin-bottom: 20px;
-}
-
+.sidebar nav ul { list-style: none; padding: 0; }
+.sidebar nav li { margin-bottom: 20px; }
 .sidebar nav a {
   text-decoration: none;
-  color: #333;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  color: #1f1f1f;
+  display: flex; align-items: center; gap: 10px;
 }
+.sidebar nav a:hover { color: #0070f3; }
 
-/* Nova seção para redes sociais */
+.active { font-weight: 700; color: #0070f3; }
+
 .social {
   margin-top: 40px;
+  display: flex; gap: 15px; justify-content: center;
   color: #000;
-  display: flex;
-  gap: 15px;
-  justify-content: center;
 }
 
-/* Responsividade: esconde a sidebar em telas menores */
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
+/* Mobile */
+@media (max-width: 768px) { .sidebar { transform: translateX(-100%); } }
+.open { transform: translateX(0); }
+.hamburger { display: none; position: fixed; top: 20px; left: 20px; z-index: 1100; background: none; border: none; cursor: pointer; }
+@media (max-width: 768px) { .hamburger { display: block; } }
+
+/* ---------- DARK MODE (GLOBAL) ---------- */
+/* Em CSS Modules, use :global para a classe 'dark' */
+:global(html.dark) .sidebar {
+  background-color: #2d2d2d;           /* cinza escuro fixo no dark */
+  box-shadow: 2px 0 6px rgba(0,0,0,0.18);
 }
 
-.active {
-  font-weight: bold;
-  color: #0070f3; /* ou a cor que preferir */
+:global(html.dark) .sidebar nav a,
+:global(html.dark) .social {
+  color: #e8e8e8;                       /* texto/ícones claros por cima do cinza */
 }
 
-/* Classe que mostra a sidebar quando isOpen = true */
-.open {
-  transform: translateX(0);
-}
-
-/* Link ativo */
-.active {
-  font-weight: bold;
-  color: #0070f3;
-}
-
-/* Seção de redes sociais */
-.social {
-  margin-top: 40px;
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-}
-
-/* Botão hamburguer (visível em telas pequenas) */
-.hamburger {
-  display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1100;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Em telas menores, a sidebar fica oculta por padrão */
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-
-  .hamburger {
-    display: block;
-  }
+:global(html.dark) .sidebar nav a:hover {
+  color: #a78bfa;                       /* roxinho suave no hover (opcional) */
 }

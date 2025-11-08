@@ -1,3 +1,5 @@
+/* ContactSection.module.css — apenas cores ajustadas; tamanhos intactos */
+
 .contact {
   padding: 60px 20px;
   text-align: center;
@@ -16,13 +18,50 @@
   gap: 15px;
 }
 
+/* ---------- Campos (LIGHT) ---------- */
 .form input,
 .form textarea {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #ccc;          /* mesma largura de borda */
+  border-radius: 4px;               /* mesmo radius */
+  background-color: #ffffff;        /* fundo claro */
+  color: #111;                      /* texto escuro para contraste */
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
+.form input::placeholder,
+.form textarea::placeholder {
+  color: #777;                      /* placeholder no light */
+}
+
+/* Foco (mesmo tamanho; apenas cor) */
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: #7c5cff;            /* só cor, sem mudar espessura */
+  box-shadow: 0 0 0 2px rgba(124, 92, 255, 0.15);
+}
+
+/* ---------- Campos (DARK) ---------- */
+:global(.dark) .form input,
+:global(.dark) .form textarea {
+  background-color: #2f2f2f;        /* match com o painel cinza do site */
+  color: #f5f5f5;                   /* texto claro */
+  border-color: rgba(255, 255, 255, 0.14); /* borda discreta */
+}
+
+:global(.dark) .form input::placeholder,
+:global(.dark) .form textarea::placeholder {
+  color: #bdbdbd;                   /* placeholder mais claro no dark */
+}
+
+:global(.dark) .form input:focus,
+:global(.dark) .form textarea:focus {
+  border-color: #9a86ff;            /* variação da cor de foco no dark */
+  box-shadow: 0 0 0 2px rgba(154, 134, 255, 0.18);
+}
+
+/* ---------- Botão (mantido tamanho; só cores) ---------- */
 .form button {
   padding: 10px 20px;
   border: none;
@@ -30,8 +69,18 @@
   background-color: #0070f3;
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .form button:hover {
   background-color: #005bb5;
+}
+
+/* Dark mode do botão — mesmo tamanho; só tonalidade */
+:global(.dark) .form button {
+  background-color: #0a68e8;
+}
+
+:global(.dark) .form button:hover {
+  background-color: #0a58c6;
 }

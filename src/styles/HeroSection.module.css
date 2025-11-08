@@ -1,34 +1,126 @@
 .hero {
-  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 80px 20px;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+@media (min-width: 768px) {
+  .heroContent {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Coluna esquerda */
+.textColumn {
+  flex: 1;
+  max-width: 500px;
   text-align: center;
 }
 
-/* Contêiner para centralizar a imagem */
+@media (min-width: 768px) {
+  .textColumn {
+    text-align: left;
+  }
+}
+
+/* Foto de perfil */
 .profileContainer {
-  margin-bottom: 20px; /* espaço entre a foto e o texto */
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
-/* Tornando a imagem circular */
+/* Tamanho consistente e responsivo da foto */
 .profileImage {
-  border-radius: 50%; /* Borda arredondada */
-  object-fit: cover; /* Corta a imagem se necessário */
-  border: 2px solid #ccc; /* (opcional) uma borda fina de contorno */
+  width: clamp(120px, 22vw, 180px);
+  height: clamp(120px, 22vw, 180px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
 }
 
-/* Estilo do botão de download (já existente) */
-.downloadButton {
-  display: inline-block;
+/* Texto */
+.textColumn h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.textColumn p {
+  font-size: 1.1rem;
+  color: #555; /* Light mode */
+  line-height: 1.6;
+}
+
+/* Botões */
+.buttonGroup {
   margin-top: 20px;
-  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .buttonGroup {
+    justify-content: flex-start;
+  }
+}
+
+.downloadButton {
   background-color: #0070f3;
-  color: #fff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
   text-decoration: none;
-  border-radius: 4px;
   transition: background-color 0.3s;
 }
 
 .downloadButton:hover {
   background-color: #005bb5;
+}
+
+.viewProjects {
+  background: transparent;
+  border: 1px solid #aaa;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.viewProjects:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Robô 3D à direita */
+.robotContainer {
+  flex: 1;
+  max-width: 500px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Overrides de tema ===== */
+/* No Dark Mode, o parágrafo fica da MESMA cor do título (var(--foreground)) */
+:global(html.dark) .textColumn p {
+  color: var(--foreground) !important;
 }

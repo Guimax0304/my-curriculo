@@ -3,7 +3,8 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
 import SobreSection from "../components/SobreSection";
-import SkillsSection from "../components/SkillsSection"; // <-- adicione aqui
+import SkillsSection from "../components/SkillsSection";
+import Interactive3D from "@/components/Interactive3D"; // <- NOVO (usado de verdade)
 import ProjectsSection from "../components/ProjectsSection";
 import EducationSection from "../components/EducationSection";
 import ContactSection from "../components/ContactSection";
@@ -14,18 +15,21 @@ export default function HomePage() {
   return (
     <div>
       <HeroSection />
+
       <SobreSection />
-      <SkillsSection /> {/* Seção Habilidades */}
+      <SkillsSection />
       <EducationSection />
       <ProjectsSection />
       <ContactSection />
+
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Outras seções ou elementos animados */}
+        {/* espaço para futuros elementos animados */}
       </motion.div>
+
       <ScrollToTopButton />
     </div>
   );

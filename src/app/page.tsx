@@ -4,6 +4,7 @@ import React from "react";
 import HeroSection from "../components/HeroSection";
 import SobreSection from "../components/SobreSection";
 import SkillsSection from "../components/SkillsSection";
+import Interactive3D from "@/components/Interactive3D";
 import ProjectsSection from "../components/ProjectsSection";
 import EducationSection from "../components/EducationSection";
 import ContactSection from "../components/ContactSection";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <SobreSection />
       <SkillsSection />
       <EducationSection />
+      <Interactive3D />
       <ProjectsSection />
       <ContactSection />
 

@@ -4,7 +4,6 @@ import React from "react";
 import HeroSection from "../components/HeroSection";
 import SobreSection from "../components/SobreSection";
 import SkillsSection from "../components/SkillsSection";
-import Interactive3D from "@/components/Interactive3D"; // <- NOVO (usado de verdade)
 import ProjectsSection from "../components/ProjectsSection";
 import EducationSection from "../components/EducationSection";
 import ContactSection from "../components/ContactSection";

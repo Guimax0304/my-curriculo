@@ -11,14 +11,14 @@ type SplineProps = {
 
 const SPLINE_URL = process.env.NEXT_PUBLIC_SPLINE_URL ?? '';
 
-// Carrega o Spline de forma dinâmica, sem SSR e sem usar `any`
+// Carrega o Spline de forma dinâmica, sem SSR
 const DynamicSpline = dynamic<SplineProps>(
   () => import('./SplineScene').then((m) => m.SplineScene),
   {
     ssr: false,
-    // Enquanto carrega, mantém o espaço do card
     loading: () => (
       <div
+        aria-hidden
         style={{
           width: '100%',
           height: '100%',
@@ -29,13 +29,8 @@ const DynamicSpline = dynamic<SplineProps>(
 );
 
 // ErrorBoundary simples para não quebrar a página se o Spline falhar
-type SplineBoundaryProps = {
-  children: React.ReactNode;
-};
-
-type SplineBoundaryState = {
-  hasError: boolean;
-};
+type SplineBoundaryProps = { children: React.ReactNode };
+type SplineBoundaryState = { hasError: boolean };
 
 class SplineBoundary extends React.Component<
   SplineBoundaryProps,
@@ -46,21 +41,19 @@ class SplineBoundary extends React.Component<
     this.state = { hasError: false };
   }
 
-  // Não precisamos do parâmetro aqui; assim evitamos no-unused-vars
   static getDerivedStateFromError(): SplineBoundaryState {
     return { hasError: true };
   }
 
   componentDidCatch(error: unknown) {
-    // Log leve; ajuste se quiser enviar para algum sistema de log
     console.error('[Interactive3D] Spline crashed:', error);
   }
 
   render() {
     if (this.state.hasError) {
-      // Mantém o espaço, mas não renderiza nada “pesado”
       return (
         <div
+          aria-hidden
           style={{
             width: '100%',
             height: '100%',
@@ -104,9 +97,9 @@ export default function Interactive3D() {
     };
   }, []);
 
+  // Card de fundo (cinza no dark)
   const cardStyle: React.CSSProperties = useMemo(() => {
     if (isDark) {
-      // Dark: card cinza leve
       return {
         borderRadius: 12,
         border: '1px solid rgba(255,255,255,0.08)',
@@ -115,25 +108,40 @@ export default function Interactive3D() {
         overflow: 'hidden',
       };
     }
-    // Light: some o “card”
     return {
-      borderRadius: 12,
-      border: 'none',
-      backgroundColor: 'transparent',
-      boxShadow: 'none',
-      overflow: 'hidden',
+        borderRadius: 12,
+        border: 'none',
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
+        overflow: 'hidden',
     };
   }, [isDark]);
 
+  // Moldura responsiva do 3D
+  const frameStyle: React.CSSProperties = useMemo(
+    () => ({
+      position: 'relative',
+      // 100% fluido, mas não passa de 520px e respeita a tela (90vw)
+      width: 'min(520px, 90vw)',
+      // Mantém proporção quadrada, que funciona bem em telas pequenas
+      aspectRatio: '1 / 1',
+      // Centraliza no espaço disponível
+      margin: '0 auto',
+    }),
+    []
+  );
+
   return (
     <section aria-label="Interactive 3D" style={cardStyle}>
-      <div style={{ position: 'relative', height: 580, width: 500 }}>
+      <div style={frameStyle}>
         <SplineBoundary>
           {SPLINE_URL && canAnimate ? (
-            <DynamicSpline scene={SPLINE_URL} className="w-full h-full" />
+            <div style={{ position: 'absolute', inset: 0 }}>
+              <DynamicSpline scene={SPLINE_URL} className="w-full h-full" />
+            </div>
           ) : (
-            // Sem fallback de imagem: apenas preserva o espaço
-            <div style={{ width: '100%', height: '100%' }} />
+            // Sem fallback de imagem: preserva o espaço
+            <div aria-hidden style={{ position: 'absolute', inset: 0 }} />
           )}
         </SplineBoundary>
       </div>

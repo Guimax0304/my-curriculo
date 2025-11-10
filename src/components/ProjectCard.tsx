@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <motion.div
       className={styles.card}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.025 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
       <h3>{title}</h3>

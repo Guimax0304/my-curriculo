@@ -1,7 +1,9 @@
 import React from "react";
-import Sidebar from "../components/Sidebar";
+import AppSidebar from "../components/Sidebar";
 import ThemeToggle from "../components/ThemeToggle";
+
 import "../styles/globals.css";
+import "../styles/responsive.mobile.css";
 
 export default function RootLayout({
   children,
@@ -12,11 +14,14 @@ export default function RootLayout({
     <html lang="pt-br">
       <head>
         <title>Meu Currículo Online</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
+
       <body>
-        <Sidebar />
+        <AppSidebar />
         <ThemeToggle />
-        <main style={{ marginLeft: "250px", padding: "20px" }}>{children}</main>
+
+        <main className="appMain">{children}</main>
       </body>
     </html>
   );

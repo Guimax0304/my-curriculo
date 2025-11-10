@@ -1,39 +1,69 @@
-/* ===== Card de Habilidade com o mesmo material do 3D ===== */
+/* src/styles/SkillCard.module.css */
+/* Material visual do card (igual ao 3D) + tipografia mobile */
+
 .card {
-  /* LIGHT */
-  background: rgba(255, 255, 255, 0.70);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  /* LIGHT — “sem card”, igual ao Interactive3D no modo claro */
+  background: transparent;
+  border: none;
+  box-shadow: none;
 
   color: black;
   padding: 20px;
-  border-radius: 14px;
+  border-radius: 12px;
   text-align: center;
-  flex: 0 0 auto;
-  width: 200px;               /* largura padrão para telas grandes */
+
   transition:
-    transform 0.2s,
-    background 0.2s,
-    border-color 0.2s,
-    box-shadow 0.2s;
+    transform .2s,
+    background .2s,
+    border-color .2s,
+    box-shadow .2s;
+
+  will-change: transform;
 }
 
 .card:hover {
   transform: translateY(-2px) scale(1.03);
 }
 
-/* DARK — precisa de :global em CSS Modules */
+/* DARK — idêntico ao Interactive3D */
 :global(html.dark) .card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 8px 24px rgba(0, 0, 0, 0.35);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
   color: #eaeaea;
 }
 
+/* Tipografia e quebras */
+.card h3 {
+  font-size: 1.08rem;
+  margin: 4px 0 6px;
+  line-height: 1.25;
+  word-break: keep-all;
+}
+.card p {
+  font-size: 0.98rem;
+  line-height: 1.5;
+  margin: 0;
+  word-break: normal;
+  white-space: normal;
+}
+
+/* Ícone do react-icons */
+.icon {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+/* Foco acessível */
+.card:focus-visible {
+  outline: 2px solid rgba(0,112,243,.9);
+  outline-offset: 2px;
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-  .card {
-    width: 150px; /* reduz a largura em telas pequenas */
-  }
+  .card { padding: 18px; }
+  .card h3 { font-size: 1rem; }
+  .card p  { font-size: .95rem; }
 }

@@ -1,51 +1,183 @@
-/* Estilo base (Light) */
+/* ---------- base ---------- */
+
 .sidebar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
+  inset: 0 auto 0 0;
   height: 100vh;
-  background-color: #f1f1f1;   /* cinza claro */
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s;
+  width: 260px;                 /* animado via framer-motion */
+  z-index: 1000;
+  background: #f3f3f3;
+  border-right: 1px solid rgba(0,0,0,.06);
+  box-shadow: 2px 0 6px rgba(0,0,0,.04);
 }
 
-.sidebar nav ul { list-style: none; padding: 0; }
-.sidebar nav li { margin-bottom: 20px; }
-.sidebar nav a {
-  text-decoration: none;
+.inner {
+  height: 100%;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  /* Reserva espaço extra para não colidir com badges/barras do ambiente */
+  padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px) + 56px);
+}
+
+.logo {
+  width: 26px;
+  height: 22px;
+  border-radius: 6px 10px 4px 10px;
+  background: #111;
+  margin-left: 2px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
   color: #1f1f1f;
-  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
 }
-.sidebar nav a:hover { color: #0070f3; }
 
-.active { font-weight: 700; color: #0070f3; }
+.link:hover {
+  background: rgba(0,0,0,.05);
+  transform: translateX(2px);
+}
+
+.linkIcon {
+  display: inline-flex;
+  width: 20px;
+  justify-content: center;
+}
+
+.linkLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.active {
+  background: #e8f0ff;
+  color: #0b57d0;
+}
 
 .social {
-  margin-top: 40px;
-  display: flex; gap: 15px; justify-content: center;
-  color: #000;
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  /* Levanta o bloco social no desktop */
+  margin-bottom: clamp(24px, 6vh, 80px);
 }
 
-/* Mobile */
-@media (max-width: 768px) { .sidebar { transform: translateX(-100%); } }
-.open { transform: translateX(0); }
-.hamburger { display: none; position: fixed; top: 20px; left: 20px; z-index: 1100; background: none; border: none; cursor: pointer; }
-@media (max-width: 768px) { .hamburger { display: block; } }
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  transition: background .15s ease, transform .15s ease;
+}
 
-/* ---------- DARK MODE (GLOBAL) ---------- */
-/* Em CSS Modules, use :global para a classe 'dark' */
+.iconBtn:hover {
+  background: #f1f1f1;
+}
+
+/* ---------- mobile ---------- */
+
+.mobileTopbar {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top, 0px));
+  left: max(14px, env(safe-area-inset-left, 0px));
+  z-index: 1100;
+  display: none;
+}
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlayHeader {
+  display: flex;
+  justify-content: flex-end;
+  padding: 18px;
+}
+
+.overlayNav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+}
+
+.overlayLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 12px;
+  border-radius: 12px;
+  color: #1f1f1f;
+  text-decoration: none;
+}
+
+.overlayLink:hover {
+  background: rgba(0,0,0,.05);
+}
+
+.overlaySocial {
+  margin-top: auto;
+  padding: 18px;
+  /* Levanta no overlay e respeita safe-area/badge */
+  padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px) + 56px);
+  display: flex;
+  gap: 10px;
+}
+
+/* ---------- dark mode ---------- */
+
 :global(html.dark) .sidebar {
-  background-color: #2d2d2d;           /* cinza escuro fixo no dark */
-  box-shadow: 2px 0 6px rgba(0,0,0,0.18);
+  background: #2d2d2d;
+  border-right: 1px solid rgba(255,255,255,.06);
+  box-shadow: 2px 0 10px rgba(0,0,0,.35);
 }
 
-:global(html.dark) .sidebar nav a,
-:global(html.dark) .social {
-  color: #e8e8e8;                       /* texto/ícones claros por cima do cinza */
+:global(html.dark) .link { color: #e9e9e9; }
+:global(html.dark) .link:hover { background: rgba(255,255,255,.06); }
+
+:global(html.dark) .active {
+  background: rgba(167,139,250,.18);
+  color: #d3caff;
 }
 
-:global(html.dark) .sidebar nav a:hover {
-  color: #a78bfa;                       /* roxinho suave no hover (opcional) */
+:global(html.dark) .iconBtn {
+  border-color: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.06);
+  color: #e9e9e9;
+}
+
+:global(html.dark) .mobileOverlay { background: #111; }
+:global(html.dark) .overlayLink { color: #f0f0f0; }
+:global(html.dark) .overlayLink:hover { background: rgba(255,255,255,.06); }
+
+/* ---------- breakpoints ---------- */
+
+@media (max-width: 768px) {
+  .mobileTopbar { display: block; }
+  .sidebar { display: none; } /* usa overlay no mobile */
 }

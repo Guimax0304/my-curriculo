@@ -1,3 +1,4 @@
+// src/components/SkillsSection.tsx
 "use client";
 
 import React, { useRef } from "react";
@@ -38,14 +39,24 @@ const SkillsSection = () => {
   };
 
   return (
-    <section id="skills" className={styles.skills}>
-      <h2>Habilidades</h2>
+    <section
+      id="skills"
+      className={styles.skills}
+      aria-labelledby="skills-title"
+      role="region"
+    >
+      <h2 id="skills-title">Habilidades</h2>
+
       <div className={styles.carouselContainer}>
-        <button onClick={scrollLeft} className={styles.arrowButton}>
-          <ChevronLeft size={24} />
+        <button
+          onClick={scrollLeft}
+          className={styles.arrowButton}
+          type="button"
+          aria-label="Deslizar habilidades para a esquerda"
+        >
+          <ChevronLeft size={24} aria-hidden />
         </button>
 
-        {/* Animação de fade-in ao entrar na tela */}
         <motion.div
           className={styles.skillsCarousel}
           ref={carouselRef}
@@ -53,81 +64,30 @@ const SkillsSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          /* once: true -> anima só a primeira vez que aparecer na tela */
         >
-          <SkillCard
-            title="HTML"
-            description="Estruturação de páginas"
-            Icon={SiHtml5}
-          />
-          <SkillCard
-            title="CSS"
-            description="Estilos responsivos"
-            Icon={SiCss3}
-          />
-          <SkillCard
-            title="React"
-            description="Biblioteca front-end"
-            Icon={SiReact}
-          />
-          <SkillCard
-            title="Next.js"
-            description="Framework React com SSR"
-            Icon={SiNextdotjs}
-          />
-          <SkillCard
-            title="Bootstrap"
-            description="Framework CSS"
-            Icon={SiBootstrap}
-          />
-          <SkillCard
-            title="JavaScript"
-            description="Linguagem de programação"
-            Icon={SiJavascript}
-          />
-          <SkillCard
-            title="TypeScript"
-            description="JavaScript tipado"
-            Icon={SiTypescript}
-          />
-          <SkillCard
-            title="Node.js"
-            description="JavaScript no back-end"
-            Icon={SiNodedotjs}
-          />
-          <SkillCard
-            title="Django"
-            description="Framework web em Python"
-            Icon={SiDjango}
-          />
-          <SkillCard
-            title="Python"
-            description="Linguagem de programação"
-            Icon={SiPython}
-          />
-          <SkillCard
-            title="C"
-            description="Linguagem de programação"
-            Icon={SiC}
-          />          
-          <SkillCard
-            title="SQL"
-            description="Banco de dados relacional"
-            Icon={SiMysql}
-          />
-          <SkillCard
-            title="PostgreSQL"
-            description="Banco de dados relacional avançado"
-            Icon={SiPostgresql}
-          />
-          <SkillCard
-            title="Docker"
-            description="Containerização de aplicações"
-            Icon={SiDocker}
-          />
+          <SkillCard title="HTML"        description="Estruturação de páginas"                 Icon={SiHtml5}      className={styles.skillCard} />
+          <SkillCard title="CSS"         description="Estilos responsivos"                     Icon={SiCss3}       className={styles.skillCard} />
+          <SkillCard title="React"       description="Biblioteca front-end"                    Icon={SiReact}      className={styles.skillCard} />
+          <SkillCard title="Next.js"     description="Framework React com SSR"                 Icon={SiNextdotjs}  className={styles.skillCard} />
+          <SkillCard title="Bootstrap"   description="Framework CSS"                           Icon={SiBootstrap}  className={styles.skillCard} />
+          <SkillCard title="JavaScript"  description="Linguagem de programação"                Icon={SiJavascript} className={styles.skillCard} />
+          <SkillCard title="TypeScript"  description="JavaScript tipado"                       Icon={SiTypescript} className={styles.skillCard} />
+          <SkillCard title="Node.js"     description="JavaScript no back-end"                  Icon={SiNodedotjs}  className={styles.skillCard} />
+          <SkillCard title="Django"      description="Framework web em Python"                 Icon={SiDjango}     className={styles.skillCard} />
+          <SkillCard title="Python"      description="Linguagem de programação"                Icon={SiPython}     className={styles.skillCard} />
+          <SkillCard title="C"           description="Linguagem de programação"                Icon={SiC}          className={styles.skillCard} />
+          <SkillCard title="SQL"         description="Banco de dados relacional"               Icon={SiMysql}      className={styles.skillCard} />
+          <SkillCard title="PostgreSQL"  description="Banco de dados relacional avançado"      Icon={SiPostgresql} className={styles.skillCard} />
+          <SkillCard title="Docker"      description="Containerização de aplicações"           Icon={SiDocker}     className={styles.skillCard} />
         </motion.div>
-        <button onClick={scrollRight} className={styles.arrowButton}>
-          <ChevronRight size={24} />
+
+        <button
+          onClick={scrollRight}
+          className={styles.arrowButton}
+          type="button"
+          aria-label="Deslizar habilidades para a direita"
+        >
+          <ChevronRight size={24} aria-hidden />
         </button>
       </div>
     </section>

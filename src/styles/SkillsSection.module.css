@@ -1,112 +1,100 @@
+/* src/styles/SkillsSection.module.css */
+
 .skills {
   padding: 60px 20px;
   text-align: center;
   position: relative;
 }
 
-/* Título com mais margem inferior */
 .skills h2 {
   margin-bottom: 20px;
 }
 
-/* Contêiner que engloba as setas e o carrossel */
+/* Container das setas + trilho */
 .carouselContainer {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Aumenta a distância do título */
   margin-top: 20px;
 }
 
-/* Carrossel horizontal: scroll horizontal e flex em linha */
+/* Trilho horizontal */
 .skillsCarousel {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  margin: 0 15px; /* espaço maior para não colar nos botões */
-  padding: 10px;
-}
 
-/* Botões de setas */
+  /* espaço lateral pra setas ficarem sobre o trilho sem cobrir o card */
+  margin: 0 12px;
+  padding: 10px 56px;
+
+  /* snap de um card por vez */
+  scroll-snap-type: x mandatory;
+
+  /* esconder scrollbar quando possível */
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+.skillsCarousel::-webkit-scrollbar { display: none; }
+
+/* Botões de navegação */
 .arrowButton {
   background: none;
   border: none;
   cursor: pointer;
-  margin: 0 15px; /* aumenta o espaçamento horizontal */
   z-index: 10;
+
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: #f4f4f4;
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.arrowButton:hover { background-color: #e0e0e0; }
 
-.arrowButton:hover {
-  background-color: #e0e0e0;
-}
-
-/* ============================= */
-/*  CARD DE HABILIDADE (igual 3D)*/
-/* ============================= */
-
-/* Light mode — mesmo material do card 3D */
+/* ====== CARD CONTROLADO A PARTIR DA SEÇÃO ====== */
 .skillCard {
-  background: rgba(255, 255, 255, 0.70);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  border-radius: 14px;
-
-  /* layout/tamanho */
-  min-width: 280px;
+  /* layout/tamanho do card no trilho */
+  min-width: 300px;
   max-width: 320px;
-  padding: 24px;
+  padding: 22px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 
-  /* transições suaves */
-  transition:
-    background .2s ease,
-    border-color .2s ease,
-    box-shadow .2s ease,
-    transform .15s ease;
+  /* snap */
+  scroll-snap-align: center;
 }
 
-.skillCard:hover {
-  transform: translateY(-2px);
-}
+/* Mobile */
+@media (max-width: 768px) {
+  .carouselContainer { position: relative; }
 
-/* Dark mode — igual ao card 3D (CSS Modules: usar :global) */
-:global(html.dark) .skillCard {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 8px 24px rgba(0, 0, 0, 0.35);
-}
+  .arrowButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    z-index: 20;
 
-/* Elementos internos (opcional) */
-.skillIcon {
-  font-size: 36px;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+    /* leve destaque pra não sumir sobre o conteúdo */
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    backdrop-filter: saturate(140%) blur(2px);
+  }
+  .arrowButton:first-of-type { left: 10px; }
+  .arrowButton:last-of-type  { right: 10px; }
 
-.skillTitle {
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
-.skillDesc {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  opacity: 0.9;
-  text-align: center;
+  /* deixa o card bem legível e centralizado */
+  .skillCard {
+    min-width: 86vw;
+    max-width: 86vw;
+    padding: 20px;
+  }
 }

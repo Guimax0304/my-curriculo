@@ -1,0 +1,92 @@
+/* ---------- BASE ---------- */
+:root{
+  --sidebar-width: 250px;
+}
+
+.appMain{
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+}
+
+/* ---------- TABLET (<= 1024px) ---------- */
+@media (max-width: 1024px){
+  :root{ --sidebar-width: 200px; }
+  .appMain{ margin-left: var(--sidebar-width); }
+}
+
+/* ---------- MOBILE (<= 768px) ---------- */
+@media (max-width: 768px){
+  /* Zera a margem do layout para ocupar a tela toda */
+  .appMain{
+    margin-left: 0 !important;
+    padding: 16px !important;
+  }
+
+  /* Se sua Sidebar for fixa, deixe-a colapsada no mobile (opcional):
+     Caso você tenha uma classe própria, troque por ela.  */
+  /* .sidebar{ width: 72px; } */
+
+  /* ====== HERO SECTION ====== */
+  /* Como os estilos são CSS Modules, usamos "contains selector" */
+  [class*="heroContent"]{
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1.25rem !important;
+  }
+
+  [class*="textColumn"]{
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Foto de perfil */
+  [class*="profileImage"]{
+    width: 120px !important;
+    height: 120px !important;
+    border-width: 2px !important;
+  }
+
+  /* Contêiner do 3D (robot) */
+  [class*="robotContainer"]{
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 300px !important;
+  }
+
+  /* ====== SKILLS (carrossel/cartões) ====== */
+  [class*="skillsCarousel"]{
+    gap: 12px !important;
+    padding: 8px !important;
+  }
+
+  /* cards genéricos de skills/education/projects se usam .card */
+  .card{
+    width: 180px !important;
+  }
+
+  /* ====== TEXTOS ====== */
+  [class*="textColumn"] h1{
+    font-size: clamp(1.6rem, 5vw, 2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  [class*="textColumn"] p{
+    font-size: 0.98rem !important;
+  }
+
+  /* ====== CONTATO (inputs) – só cores, sem mexer em tamanho ====== */
+  /* O tamanho dos inputs continua vindo do seu module.css */
+  .form input,
+  .form textarea{
+    background: rgba(255,255,255,0.06);
+    color: var(--text-color, #f5f5f5);
+    border-color: rgba(255,255,255,0.16);
+  }
+  html:not(.dark) .form input,
+  html:not(.dark) .form textarea{
+    background: #fff;
+    color: #111;
+    border-color: #ccc;
+  }
+}

@@ -69,6 +69,7 @@ function SidebarLink({ item, active }: { item: LinkItem; active: boolean }) {
 export default function AppSidebar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>("section[id]");
@@ -79,8 +80,6 @@ export default function AppSidebar() {
     sections.forEach((s) => obs.observe(s));
     return () => sections.forEach((s) => obs.unobserve(s));
   }, []);
-
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <SidebarContext.Provider value={{ open, setOpen }}>
@@ -98,6 +97,7 @@ export default function AppSidebar() {
       {/* Sidebar (desktop) */}
       <motion.aside
         className={styles.sidebar}
+        data-open={open}              
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
         animate={{ width: open ? 260 : 64 }}

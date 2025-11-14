@@ -8,6 +8,7 @@ import styles from "../styles/SkillsSection.module.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   SiC,
+  SiSharp,
   SiCss3,
   SiDjango,
   SiHtml5,
@@ -28,13 +29,13 @@ const SkillsSection = () => {
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft -= 300;
+      carouselRef.current.scrollLeft -= 320;
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft += 300;
+      carouselRef.current.scrollLeft += 320;
     }
   };
 
@@ -46,6 +47,10 @@ const SkillsSection = () => {
       role="region"
     >
       <h2 id="skills-title">Habilidades</h2>
+      <p className={styles.subtitle}>
+        Tecnologias que utilizo no dia a dia para construir aplicações web
+        modernas, do front-end ao back-end.
+      </p>
 
       <div className={styles.carouselContainer}>
         <button
@@ -54,7 +59,7 @@ const SkillsSection = () => {
           type="button"
           aria-label="Deslizar habilidades para a esquerda"
         >
-          <ChevronLeft size={24} aria-hidden />
+          <ChevronLeft size={20} aria-hidden />
         </button>
 
         <motion.div
@@ -65,20 +70,105 @@ const SkillsSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <SkillCard title="HTML"        description="Estruturação de páginas"                 Icon={SiHtml5}      className={styles.skillCard} />
-          <SkillCard title="CSS"         description="Estilos responsivos"                     Icon={SiCss3}       className={styles.skillCard} />
-          <SkillCard title="React"       description="Biblioteca front-end"                    Icon={SiReact}      className={styles.skillCard} />
-          <SkillCard title="Next.js"     description="Framework React com SSR"                 Icon={SiNextdotjs}  className={styles.skillCard} />
-          <SkillCard title="Bootstrap"   description="Framework CSS"                           Icon={SiBootstrap}  className={styles.skillCard} />
-          <SkillCard title="JavaScript"  description="Linguagem de programação"                Icon={SiJavascript} className={styles.skillCard} />
-          <SkillCard title="TypeScript"  description="JavaScript tipado"                       Icon={SiTypescript} className={styles.skillCard} />
-          <SkillCard title="Node.js"     description="JavaScript no back-end"                  Icon={SiNodedotjs}  className={styles.skillCard} />
-          <SkillCard title="Django"      description="Framework web em Python"                 Icon={SiDjango}     className={styles.skillCard} />
-          <SkillCard title="Python"      description="Linguagem de programação"                Icon={SiPython}     className={styles.skillCard} />
-          <SkillCard title="C"           description="Linguagem de programação"                Icon={SiC}          className={styles.skillCard} />
-          <SkillCard title="SQL"         description="Banco de dados relacional"               Icon={SiMysql}      className={styles.skillCard} />
-          <SkillCard title="PostgreSQL"  description="Banco de dados relacional avançado"      Icon={SiPostgresql} className={styles.skillCard} />
-          <SkillCard title="Docker"      description="Containerização de aplicações"           Icon={SiDocker}     className={styles.skillCard} />
+          {/* Mais relevantes / modernas */}
+          <SkillCard
+            title="TypeScript"
+            description="JavaScript tipado para código seguro e escalável."
+            Icon={SiTypescript}
+            className={styles.skillCard}
+          />
+          <SkillCard
+            title="React"
+            description="Interfaces reativas, performáticas e componentizadas."
+            Icon={SiReact}
+            className={styles.skillCard}
+          />
+          <SkillCard
+            title="Next.js"
+            description="Aplicações full stack com SSR, SSG e API Routes."
+            Icon={SiNextdotjs}
+            className={styles.skillCard}
+          />
+          <SkillCard
+            title="Node.js"
+            description="APIs modernas, serviços back-end e microserviços."
+            Icon={SiNodedotjs}
+            className={styles.skillCard}
+          />
+          <SkillCard
+            title="C#"
+            description="Sistemas corporativos, APIs e aplicações robustas."
+            Icon={SiSharp}
+            className={styles.skillCard}
+          />
+
+          {/* Stack de infraestrutura e dados */}
+          <SkillCard
+            title="Docker"
+            description="Containerização e ambientes reprodutíveis."
+            Icon={SiDocker}
+            className={styles.skillCard}
+          />
+          <SkillCard
+            title="PostgreSQL"
+            description="Banco de dados relacional de alta performance."
+            Icon={SiPostgresql}
+            className={styles.skillCard}
+          />
+
+          {/* Back-end e linguagem geral */}
+          <SkillCard
+            title="Django"
+            description="Framework back-end poderoso e seguro."
+            Icon={SiDjango}
+            className={styles.skillCard}
+          />
+          <SkillCard
+            title="Python"
+            description="APIs, automações e scripts para backend."
+            Icon={SiPython}
+            className={styles.skillCard}
+          />
+          <SkillCard
+            title="JavaScript"
+            description="Linguagem fundamental do desenvolvimento web."
+            Icon={SiJavascript}
+            className={styles.skillCard}
+          />
+          <SkillCard
+            title="SQL"
+            description="Modelagem e consultas em bancos relacionais."
+            Icon={SiMysql}
+            className={styles.skillCard}
+          />
+
+          {/* Base da web / estilo */}
+          <SkillCard
+            title="HTML"
+            description="Estruturação semântica de interfaces."
+            Icon={SiHtml5}
+            className={styles.skillCard}
+          />
+          <SkillCard
+            title="CSS"
+            description="Layouts responsivos e estilização moderna."
+            Icon={SiCss3}
+            className={styles.skillCard}
+          />
+          <SkillCard
+            title="Bootstrap"
+            description="Protótipos rápidos com grid responsivo."
+            Icon={SiBootstrap}
+            className={styles.skillCard}
+          />
+
+          {/* Fundamento de baixo nível */}
+          <SkillCard
+            title="C"
+            description="Fundamentos de computação e baixo nível."
+            Icon={SiC}
+            className={styles.skillCard}
+          />
         </motion.div>
 
         <button
@@ -87,7 +177,7 @@ const SkillsSection = () => {
           type="button"
           aria-label="Deslizar habilidades para a direita"
         >
-          <ChevronRight size={24} aria-hidden />
+          <ChevronRight size={20} aria-hidden />
         </button>
       </div>
     </section>

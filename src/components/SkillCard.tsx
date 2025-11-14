@@ -13,16 +13,26 @@ interface SkillCardProps {
   className?: string;
 }
 
-const SkillCard: React.FC<SkillCardProps> = ({ title, description, Icon, className }) => {
+const SkillCard: React.FC<SkillCardProps> = ({
+  title,
+  description,
+  Icon,
+  className,
+}) => {
   return (
     <motion.article
       className={`${styles.card} ${className ?? ""}`}
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 300 }}
+      whileHover={{ scale: 1.03 }}
+      transition={{ type: "spring", stiffness: 260, damping: 20 }}
       aria-label={`Habilidade: ${title}`}
       tabIndex={0}
     >
-      {Icon && <Icon className={styles.icon} aria-hidden />}
+      {Icon && (
+        <div className={styles.iconWrapper} aria-hidden>
+          <Icon className={styles.icon} />
+        </div>
+      )}
+
       <h3>{title}</h3>
       <p>{description}</p>
     </motion.article>

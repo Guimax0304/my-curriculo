@@ -1,0 +1,50 @@
+/* src/styles/Interactive3D.module.css */
+
+/* Card “wrapper” */
+.card {
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+/* LIGHT – mantém o visual anterior: sem fundo de card, só o robozinho */
+.light {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  box-shadow: none;
+}
+
+/* DARK – igual ao SkillCard em dark mode */
+.dark {
+  background: radial-gradient(
+      circle at top,
+      rgba(148, 163, 184, 0.18),
+      rgba(15, 23, 42, 0.98)
+    );
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
+}
+
+/* Frame responsivo do 3D */
+.frame {
+  position: relative;
+  width: min(520px, 90vw);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+}
+
+/* Spline ocupa todo o frame */
+.spline {
+  position: absolute !important;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fallback enquanto carrega / erro */
+.loading {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}

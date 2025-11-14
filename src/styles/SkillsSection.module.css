@@ -1,7 +1,7 @@
 /* src/styles/SkillsSection.module.css */
 
 .skills {
-  padding: 72px 20px 56px;
+  padding: 64px 20px 52px;
   text-align: center;
   position: relative;
   max-width: 1120px;
@@ -31,7 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 /* Trilho horizontal */
@@ -47,7 +47,7 @@
   scroll-snap-type: x mandatory;
 
   -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;    /* Firefox */
 }
 
 .skillsCarousel::-webkit-scrollbar {
@@ -94,26 +94,36 @@
   scroll-snap-align: center;
 }
 
-/* Mobile */
+/* ==================== MOBILE ==================== */
 @media (max-width: 768px) {
   .skills {
-    padding: 56px 16px 40px;
+    padding: 48px 16px 40px;     /* aproxima mais do título e do resto da página */
   }
 
   .skills h2 {
     font-size: 1.6rem;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 0.94rem;
+    margin-bottom: 12px;
+    padding: 0 6px;
   }
 
   .carouselContainer {
     position: relative;
+    margin-top: 12px;
   }
 
   .skillsCarousel {
-    padding: 14px 48px;
+    padding: 12px 52px;          /* menos padding lateral pra caber melhor */
     gap: 16px;
   }
 
   .arrowButton {
+    width: 34px;                 /* setas um pouco menores */
+    height: 34px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -125,11 +135,11 @@
   }
 
   .arrowButton:first-of-type {
-    left: 8px;
+    left: 4px;
   }
 
   .arrowButton:last-of-type {
-    right: 8px;
+    right: 4px;
   }
 
   .skillCard {

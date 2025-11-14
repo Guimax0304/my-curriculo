@@ -1,34 +1,27 @@
 // src/components/Interactive3D.tsx
-'use client';
+"use client";
 
-import React, { useEffect, useMemo, useState } from 'react';
-import dynamic from 'next/dynamic';
+import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import styles from "../styles/Interactive3D.module.css";
 
 type SplineProps = {
   scene: string;
   className?: string;
 };
 
-const SPLINE_URL = process.env.NEXT_PUBLIC_SPLINE_URL ?? '';
+const SPLINE_URL = process.env.NEXT_PUBLIC_SPLINE_URL ?? "";
 
-// Carrega o Spline de forma dinâmica, sem SSR
+// Import dinâmico do Spline
 const DynamicSpline = dynamic<SplineProps>(
-  () => import('./SplineScene').then((m) => m.SplineScene),
+  () => import("./SplineScene").then((m) => m.SplineScene),
   {
     ssr: false,
-    loading: () => (
-      <div
-        aria-hidden
-        style={{
-          width: '100%',
-          height: '100%',
-        }}
-      />
-    ),
+    loading: () => <div aria-hidden className={styles.loading} />,
   }
 );
 
-// ErrorBoundary simples para não quebrar a página se o Spline falhar
+// ErrorBoundary simples
 type SplineBoundaryProps = { children: React.ReactNode };
 type SplineBoundaryState = { hasError: boolean };
 
@@ -36,7 +29,7 @@ class SplineBoundary extends React.Component<
   SplineBoundaryProps,
   SplineBoundaryState
 > {
-  constructor(props: Readonly<SplineBoundaryProps>) {
+  constructor(props: SplineBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
@@ -45,21 +38,13 @@ class SplineBoundary extends React.Component<
     return { hasError: true };
   }
 
-  componentDidCatch(error: unknown) {
-    console.error('[Interactive3D] Spline crashed:', error);
+  componentDidCatch(err: unknown) {
+    console.error("[Interactive3D] Crash:", err);
   }
 
   render() {
     if (this.state.hasError) {
-      return (
-        <div
-          aria-hidden
-          style={{
-            width: '100%',
-            height: '100%',
-          }}
-        />
-      );
+      return <div aria-hidden className={styles.loading} />;
     }
     return this.props.children;
   }
@@ -71,77 +56,43 @@ export default function Interactive3D() {
 
   useEffect(() => {
     // Acessibilidade: respeita reduzir movimento
-    const motionMq = window.matchMedia(
-      '(prefers-reduced-motion: no-preference)'
-    );
-    setCanAnimate(motionMq.matches);
+    const mq = window.matchMedia("(prefers-reduced-motion: no-preference)");
+    setCanAnimate(mq.matches);
 
     // Detecta tema (pref dark OU classe "dark" no <html>)
-    const themeMq = window.matchMedia('(prefers-color-scheme: dark)');
+    const themeMq = window.matchMedia("(prefers-color-scheme: dark)");
     const readTheme = () =>
-      themeMq.matches || document.documentElement.classList.contains('dark');
+      themeMq.matches ||
+      document.documentElement.classList.contains("dark");
 
-    const onChange = () => setIsDark(readTheme());
-    setIsDark(readTheme());
+    const update = () => setIsDark(readTheme());
 
-    themeMq.addEventListener('change', onChange);
-    const obs = new MutationObserver(onChange);
+    update();
+    themeMq.addEventListener("change", update);
+
+    const obs = new MutationObserver(update);
     obs.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['class'],
+      attributeFilter: ["class"],
     });
 
     return () => {
-      themeMq.removeEventListener('change', onChange);
+      themeMq.removeEventListener("change", update);
       obs.disconnect();
     };
   }, []);
 
-  // Card de fundo (cinza no dark)
-  const cardStyle: React.CSSProperties = useMemo(() => {
-    if (isDark) {
-      return {
-        borderRadius: 12,
-        border: '1px solid rgba(255,255,255,0.08)',
-        backgroundColor: 'rgba(255,255,255,0.06)',
-        boxShadow: '0 1px 0 rgba(255,255,255,0.04) inset',
-        overflow: 'hidden',
-      };
-    }
-    return {
-        borderRadius: 12,
-        border: 'none',
-        backgroundColor: 'transparent',
-        boxShadow: 'none',
-        overflow: 'hidden',
-    };
-  }, [isDark]);
-
-  // Moldura responsiva do 3D
-  const frameStyle: React.CSSProperties = useMemo(
-    () => ({
-      position: 'relative',
-      // 100% fluido, mas não passa de 520px e respeita a tela (90vw)
-      width: 'min(520px, 90vw)',
-      // Mantém proporção quadrada, que funciona bem em telas pequenas
-      aspectRatio: '1 / 1',
-      // Centraliza no espaço disponível
-      margin: '0 auto',
-    }),
-    []
-  );
-
   return (
-    <section aria-label="Interactive 3D" style={cardStyle}>
-      <div style={frameStyle}>
+    <section
+      aria-label="Interactive 3D"
+      className={`${styles.card} ${isDark ? styles.dark : styles.light}`}
+    >
+      <div className={styles.frame}>
         <SplineBoundary>
           {SPLINE_URL && canAnimate ? (
-            <div style={{ position: 'absolute', inset: 0 }}>
-              <DynamicSpline scene={SPLINE_URL} className="w-full h-full" />
-            </div>
+            <DynamicSpline scene={SPLINE_URL} className={styles.spline} />
           ) : (
-            // Sem fallback de imagem: preserva o espaço
-            <div aria-hidden style={{ position: 'absolute', inset: 0 }} />
+            <div aria-hidden className={styles.loading} />
           )}
         </SplineBoundary>
       </div>

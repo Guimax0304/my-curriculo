@@ -1,4 +1,5 @@
 import React from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import AppSidebar from "../components/Sidebar";
 import ThemeToggle from "../components/ThemeToggle";
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <ThemeToggle />
 
         <main className="appMain">{children}</main>
+        <SpeedInsights />
       </body>
     </html>
   );

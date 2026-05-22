@@ -137,8 +137,14 @@ export const projects: Project[] = [
       devops: ["Docker", "Render", "Vercel"],
       integrations: ["E-mail transacional"],
     },
-    repoUrl: "https://github.com/seuusuario/paintball-booking",
+    repoUrl: "https://github.com/Guimax0304/paintball-agendamento",
     demoUrl: "https://paintball-agendamento.vercel.app/agendar/unidade",
+    access: {
+    title: "Acesso para teste",
+    username: "admin@paintball.com",
+    password: "#@Admin81",
+    note: "Use estas credenciais para entrar na demonstração do sistema.",
+    },
   },
   {
     id: "portfolio",

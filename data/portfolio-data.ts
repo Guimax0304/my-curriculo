@@ -3,7 +3,7 @@ export const personalInfo = {
   title: "Engenheiro de Software em formação | Desenvolvedor Full Stack",
   description:
     "Desenvolvo aplicações web completas, unindo frontend, backend, APIs, banco de dados, deploy e boas práticas de organização para criar soluções funcionais, escaláveis e bem estruturadas.",
-  email: "guilhermevianalourenco2@email.com",
+  email: "guilhermevianalourenco2@gmail.com",
   github: "https://github.com/Guimax0304",
   linkedin: "https://www.linkedin.com/in/guilherme-viana-64367528a/",
   whatsapp: "https://wa.me/5581996070986",
@@ -40,6 +40,12 @@ export const skills = {
     { name: "PostgreSQL", level: "Avançado" },
     { name: "Prisma", level: "Intermediário" },
   ],
+  data: [
+    { name: "Power BI", level: "Intermediário" },
+    { name: "Power Query", level: "Intermediário" },
+    { name: "DAX", level: "Intermediário" },
+    { name: "Modelagem de Dados", level: "Intermediário" },
+  ],
   devops: [
     { name: "Docker", level: "Intermediário" },
     { name: "Git", level: "Avançado" },
@@ -67,6 +73,7 @@ export interface Project {
     database?: string[]
     devops?: string[]
     integrations?: string[]
+    data?: string[]
   }
   repoUrl?: string
   demoUrl?: string
@@ -80,6 +87,35 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    id: "dashboard-financeiro-powerbi",
+    name: "Dashboard Financeiro — Contas a Receber",
+    shortDescription:
+      "Dashboard desenvolvido no Power BI para análise de contas a receber, com indicadores de valores emitidos, recebidos, em aberto, vencidos, inadimplência e situação de boletos.",
+    objective:
+      "Simular uma demanda real da área financeira, transformando dados fictícios em indicadores visuais para apoiar a tomada de decisão sobre recebíveis, inadimplência e clientes com maior saldo em aberto.",
+    role: "Business Intelligence / Análise de Dados",
+    features: [
+      "Indicadores de valor emitido, recebido, em aberto e vencido",
+      "Cálculo de percentual de inadimplência",
+      "Análise de evolução mensal entre valores emitidos e recebidos",
+      "Ranking dos clientes com maior valor em aberto",
+      "Distribuição dos títulos por situação financeira",
+      "Análise da situação dos boletos",
+      "Filtros interativos por ano, segmento e UF",
+      "Publicação do relatório no Power BI Service",
+    ],
+    stack: {
+      data: [
+        "Power BI",
+        "Power Query",
+        "DAX",
+        "Excel",
+        "Modelagem de Dados",
+        "Power BI Service",
+      ],
+    },
+  },
   {
     id: "clinica-django",
     name: "Clínica Django",
@@ -98,7 +134,7 @@ export const projects: Project[] = [
       "Estrutura com Docker",
     ],
     stack: {
-      frontend: ["Python","JavaScript", "Django Templates"],
+      frontend: ["Python", "JavaScript", "Django Templates"],
       backend: ["Python", "Django"],
       database: ["PostgreSQL"],
       devops: ["Docker", "GitHub", "Hugging Face"],
@@ -106,11 +142,11 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/Guimax0304/clinica-django",
     demoUrl: "https://guilhermevl-clinica-django.hf.space/usuarios/login/",
     access: {
-    title: "Acesso para teste",
-    username: "guilh",
-    password: "#Guimax0202",
-    note: "Use estas credenciais para entrar na demonstração do sistema.",
-  },
+      title: "Acesso para teste",
+      username: "guilh",
+      password: "#Guimax0202",
+      note: "Use estas credenciais para entrar na demonstração do sistema.",
+    },
   },
   {
     id: "paintball-booking",
@@ -131,7 +167,7 @@ export const projects: Project[] = [
       "Controle de disponibilidade",
     ],
     stack: {
-      frontend: ["React", "TypeScript", "Vite",],
+      frontend: ["React", "TypeScript", "Vite"],
       backend: ["NestJS", "TypeScript", "Node.js"],
       database: ["PostgreSQL", "Prisma"],
       devops: ["Docker", "Render", "Vercel"],
@@ -140,10 +176,10 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/Guimax0304/paintball-agendamento",
     demoUrl: "https://paintball-agendamento.vercel.app/agendar/unidade",
     access: {
-    title: "Acesso para teste",
-    username: "admin@paintball.com",
-    password: "#@Admin81",
-    note: "Use estas credenciais para entrar na demonstração do sistema.",
+      title: "Acesso para teste",
+      username: "admin@paintball.com",
+      password: "#@Admin81",
+      note: "Use estas credenciais para entrar na demonstração do sistema.",
     },
   },
   {
@@ -167,7 +203,7 @@ export const projects: Project[] = [
       devops: ["Vercel", "GitHub"],
     },
     repoUrl: "https://github.com/Guimax0304/portfolio-vanessa",
-    demoUrl: "https://portfolio-vanessa-azure.vercel.app"
+    demoUrl: "https://portfolio-vanessa-azure.vercel.app",
   },
 ]
 

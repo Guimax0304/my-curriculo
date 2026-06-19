@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ExternalLink, Github, FolderKanban, ChevronRight, Code2, Server, Database, Cloud, Puzzle,  Globe,KeyRound,UserRound, } from "lucide-react"
+import { ExternalLink,Github,FolderKanban,ChevronRight,Code2,Server,Database,Cloud,
+Puzzle,Globe,KeyRound,UserRound,BarChart3,} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { projects, type Project } from "@/data/portfolio-data"
@@ -21,6 +22,7 @@ const stackCategories = [
   { key: "database" as const, label: "Banco de dados", icon: Database },
   { key: "devops" as const, label: "DevOps / Infra", icon: Cloud },
   { key: "integrations" as const, label: "Integrações", icon: Puzzle },
+  { key: "data" as const, label: "Dados / BI", icon: BarChart3 },
 ]
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -33,7 +35,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       {/* Glow effect */}
       <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      
+
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
@@ -53,14 +55,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               {project.name}
             </h3>
           </div>
-          
+
           {/* Actions */}
           <div className="flex items-center gap-2 shrink-0">
             {project.repoUrl && (
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                asChild 
+              <Button
+                variant="ghost"
+                size="icon"
+                asChild
                 className="h-9 w-9 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-primary/10 hover:text-primary transition-all"
               >
                 <a
@@ -73,11 +75,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 </a>
               </Button>
             )}
+
             {project.demoUrl && project.demoUrl !== "#" && (
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                asChild 
+              <Button
+                variant="ghost"
+                size="icon"
+                asChild
                 className="h-9 w-9 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-primary/10 hover:text-primary transition-all"
               >
                 <a
@@ -198,6 +201,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <span className="h-1 w-1 rounded-full bg-muted-foreground" />
             Stack Técnica
           </h4>
+
           <div className="space-y-3">
             {stackCategories.map((category) => {
               const techs = project.stack[category.key]
@@ -211,6 +215,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                       {category.label}
                     </span>
                   </div>
+
                   <div className="flex flex-wrap gap-1.5">
                     {techs.map((tech) => (
                       <Badge
@@ -239,14 +244,14 @@ export function Projects() {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary/3 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-1/3 w-[500px] h-[400px] bg-primary/2 rounded-full blur-3xl" />
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.01]"
           style={{
             backgroundImage: `
               linear-gradient(to right, var(--foreground) 1px, transparent 1px),
               linear-gradient(to bottom, var(--foreground) 1px, transparent 1px)
             `,
-            backgroundSize: '80px 80px',
+            backgroundSize: "80px 80px",
           }}
         />
       </div>
@@ -254,30 +259,48 @@ export function Projects() {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             className="mb-16"
           >
             <div className="flex items-center gap-4 mb-4">
-              <motion.div variants={fadeInUp} custom={0} className="p-2.5 rounded-lg bg-primary/10 text-primary">
+              <motion.div
+                variants={fadeInUp}
+                custom={0}
+                className="p-2.5 rounded-lg bg-primary/10 text-primary"
+              >
                 <FolderKanban className="h-5 w-5" />
               </motion.div>
-              <motion.div variants={fadeInUp} custom={0} className="h-px flex-1 bg-gradient-to-r from-border to-transparent max-w-24" />
-              <motion.h2 variants={fadeInUp} custom={1} className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
+
+              <motion.div
+                variants={fadeInUp}
+                custom={0}
+                className="h-px flex-1 bg-gradient-to-r from-border to-transparent max-w-24"
+              />
+
+              <motion.h2
+                variants={fadeInUp}
+                custom={1}
+                className="text-sm font-medium text-muted-foreground uppercase tracking-widest"
+              >
                 Projetos
               </motion.h2>
             </div>
 
-            <motion.p variants={fadeInUp} custom={2} className="text-muted-foreground text-base lg:text-lg max-w-2xl text-pretty">
+            <motion.p
+              variants={fadeInUp}
+              custom={2}
+              className="text-muted-foreground text-base lg:text-lg max-w-2xl text-pretty"
+            >
               Projetos desenvolvidos com foco em entregar soluções completas,
               funcionais e bem estruturadas.
             </motion.p>
           </motion.div>
 
           {/* Projects Grid */}
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 gap-6"
             initial="hidden"
             whileInView="visible"

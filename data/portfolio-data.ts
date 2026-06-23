@@ -88,34 +88,37 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "dashboard-financeiro-powerbi",
-    name: "Dashboard Financeiro — Contas a Receber",
-    shortDescription:
-      "Dashboard desenvolvido no Power BI para análise de contas a receber, com indicadores de valores emitidos, recebidos, em aberto, vencidos, inadimplência e situação de boletos.",
-    objective:
-      "Simular uma demanda real da área financeira, transformando dados fictícios em indicadores visuais para apoiar a tomada de decisão sobre recebíveis, inadimplência e clientes com maior saldo em aberto.",
-    role: "Business Intelligence / Análise de Dados",
-    features: [
-      "Indicadores de valor emitido, recebido, em aberto e vencido",
-      "Cálculo de percentual de inadimplência",
-      "Análise de evolução mensal entre valores emitidos e recebidos",
-      "Ranking dos clientes com maior valor em aberto",
-      "Distribuição dos títulos por situação financeira",
-      "Análise da situação dos boletos",
-      "Filtros interativos por ano, segmento e UF",
-      "Publicação do relatório no Power BI Service",
+  id: "dashboard-financeiro-powerbi",
+  name: "Dashboard Financeiro — Contas a Receber",
+  shortDescription:
+    "Dashboard desenvolvido no Power BI para análise de contas a receber, com indicadores de valores emitidos, recebidos, em aberto, vencidos, inadimplência e situação de boletos.",
+  objective:
+    "Simular uma demanda real da área financeira, transformando dados fictícios em indicadores visuais para apoiar a tomada de decisão sobre recebíveis, inadimplência e clientes com maior saldo em aberto.",
+  role: "Business Intelligence / Análise de Dados",
+  features: [
+    "Indicadores de valor emitido, recebido, em aberto e vencido",
+    "Cálculo de percentual de inadimplência",
+    "Análise de evolução mensal entre valores emitidos e recebidos",
+    "Ranking dos clientes com maior valor em aberto",
+    "Distribuição dos títulos por situação financeira",
+    "Análise da situação dos boletos",
+    "Filtros interativos por ano, segmento e UF",
+    "Publicação do relatório no Power BI Service",
+  ],
+  stack: {
+    data: [
+      "Power BI",
+      "Power Query",
+      "DAX",
+      "Excel",
+      "Modelagem de Dados",
+      "Power BI Service",
     ],
-    stack: {
-      data: [
-        "Power BI",
-        "Power Query",
-        "DAX",
-        "Excel",
-        "Modelagem de Dados",
-        "Power BI Service",
-      ],
-    },
   },
+  repoUrl: "https://github.com/Guimax0304/dashboard-financeiro-powerbi",
+  demoUrl: "https://app.powerbi.com/groups/me/reports/69ac919f-e984-4de1-997c-7c63d0185798/05771f57000be66aa659?experience=power-bi",
+},
+
   {
     id: "clinica-django",
     name: "Clínica Django",

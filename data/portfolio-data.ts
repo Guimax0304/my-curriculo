@@ -1,8 +1,8 @@
 export const personalInfo = {
   name: "Guilherme Viana",
-  title: "Engenheiro de Software em formação | Desenvolvedor Full Stack",
+  title: "Engenharia de Software em formação | Desenvolvimento Full Stack e Automações",
   description:
-    "Desenvolvo aplicações web completas, unindo frontend, backend, APIs, banco de dados, deploy e boas práticas de organização para criar soluções funcionais, escaláveis e bem estruturadas.",
+    "Atuo com desenvolvimento de software e automações em Python e JavaScript, integrando extensões de navegador, serviços locais, APIs e processamento de dados. Também desenvolvo aplicações Full Stack com React, Node.js, Django e PostgreSQL.",
   email: "guilhermevianalourenco2@gmail.com",
   github: "https://github.com/Guimax0304",
   linkedin: "https://www.linkedin.com/in/guilherme-viana-64367528a/",
@@ -13,8 +13,8 @@ export const personalInfo = {
 
 export const aboutContent = {
   paragraphs: [
-    "Sou desenvolvedor full stack com foco em criar aplicações web completas e bem estruturadas. Minha atuação vai além de interfaces: desenvolvo sistemas com visão de arquitetura, integrando frontend, backend, banco de dados e deploy em soluções funcionais.",
-    "Busco constantemente aprimorar minhas habilidades técnicas, sempre priorizando código limpo, organização e boas práticas de desenvolvimento. Acredito que um bom software é aquele que resolve problemas reais de forma eficiente e sustentável.",
+    "Sou estudante de Engenharia de Software, com conclusão prevista para dezembro de 2028. Atualmente atuo na Hef com automações para rotinas fiscais e contábeis, utilizando Python e JavaScript para integrar extensões de navegador a serviços locais e processar consultas em lote.",
+    "Tenho experiência anterior na evolução de um ERP financeiro com C#/.NET, ASP.NET e APIs REST, além de projetos Full Stack com React, Node.js/NestJS, Django e PostgreSQL. Priorizo tratamento de erros, organização do código, testes e aprendizado contínuo; utilizo IA como apoio para escrever, revisar, compreender e depurar código.",
   ],
 }
 
@@ -57,6 +57,11 @@ export const skills = {
     { name: "APIs REST", level: "Avançado" },
     { name: "JWT/Auth", level: "Intermediário" },
     { name: "Testes", level: "Intermediário" },
+    { name: "Automação de processos", level: "Experiência prática" },
+    { name: "Automação web", level: "Experiência prática" },
+    { name: "Extensões Chromium", level: "Experiência prática" },
+    { name: "Processamento de planilhas e PDFs", level: "Experiência prática" },
+    { name: "Logs e tratamento de exceções", level: "Experiência prática" },
   ],
 }
 
@@ -222,20 +227,35 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    id: "gcinet",
-    company: "Gcinet",
-    role: "Estágio em Desenvolvimento de Software",
-    period: "June 2025 - September 2025",
+    id: "hef",
+    company: "Hef",
+    role: "Desenvolvedor de Automações",
+    period: "Agosto de 2026 - Atual",
     description:
-      "Atuação em sistema corporativo com foco em desenvolvimento e manutenção de aplicações.",
+      "Desenvolvimento e manutenção de automações para rotinas fiscais e contábeis, com foco em consultas a portais governamentais, processamento de informações e confiabilidade das execuções.",
     responsibilities: [
-      "Suporte a rotinas de desenvolvimento e manutenção",
-      "Participação em melhorias de sistema",
-      "Apoio em integrações e demandas de negócio",
-      "Colaboração em reuniões e alinhamentos técnicos",
-      "Experiência com contexto corporativo e processos de equipe",
+      "Desenvolvimento de automações em Python e JavaScript para consultas assistidas e processamento em lote em portais como e-CAC e DET.",
+      "Integração de extensões de navegador Chromium com serviços locais em Python por meio de comunicação HTTP.",
+      "Leitura de bases em Excel, organização de evidências em PDF e geração de relatórios e registros de execução.",
+      "Implementação e aprimoramento de validações, logs, tratamento de exceções e persistência de estado em JSON para retomada de consultas interrompidas.",
+      "Investigação de falhas, testes e ajustes nos fluxos de automação para melhorar a confiabilidade dos processos.",
     ],
-    technologies: ["C#", "ASP.NET", "SQL Server"],
+    technologies: ["Python", "JavaScript", "Extensões Chromium", "HTTP", "Excel", "JSON", "PDF", "Automação web"],
+  },
+  {
+    id: "gcinet",
+    company: "GCINET",
+    role: "Desenvolvimento de Software / Full Stack .NET",
+    period: "Junho de 2025 - Setembro de 2025",
+    description:
+      "Atuação na evolução e manutenção de um ERP financeiro, com desenvolvimento de funcionalidades, integrações e melhorias em aplicações corporativas.",
+    responsibilities: [
+      "Desenvolvimento e manutenção de funcionalidades com C#/.NET, ASP.NET MVC/Razor e APIs REST.",
+      "Apoio aos módulos de convênios bancários, boletos e notas fiscais, incluindo integração com provedores externos como Tecnospeed.",
+      "Consultas SQL, validação de dados e investigação de inconsistências em rotinas financeiras.",
+      "Melhorias de interfaces com HTML, CSS e JavaScript, além de testes, documentação e colaboração com desenvolvedores e QA.",
+    ],
+    technologies: ["C#", ".NET", "ASP.NET MVC/Razor", "APIs REST", "SQL", "PostgreSQL", "JavaScript", "Git", "Postman"],
   },
 ]
 
@@ -252,7 +272,7 @@ export const education: Education[] = [
     id: "engenharia-software",
     institution: "Universidade Estacio de Sá",
     course: "Engenharia de Software",
-    period: "2025 - Cursando",
+    period: "2025 - Conclusão prevista: Dezembro de 2028",
     description:
       "Graduação com foco em desenvolvimento de software, engenharia de sistemas e boas práticas de programação.",
   },

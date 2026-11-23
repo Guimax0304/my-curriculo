@@ -46,7 +46,7 @@ export function Footer() {
                 </span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Desenvolvedor Full Stack focado em criar aplicações web completas e bem estruturadas.
+                Desenvolvimento Full Stack e automação de processos com Python, JavaScript e APIs.
               </p>
               
               {/* Social links */}

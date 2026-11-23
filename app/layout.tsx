@@ -7,11 +7,11 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Portfólio | Desenvolvedor Full Stack',
-  description: 'Engenheiro de Software em formação e Desenvolvedor Full Stack. Desenvolvo aplicações web completas com frontend, backend, APIs, banco de dados e deploy.',
+  title: 'Guilherme Viana | Full Stack e Automações',
+  description: 'Estudante de Engenharia de Software e desenvolvedor de automações na Hef. Experiência em Python, JavaScript, APIs REST, ERP e projetos Full Stack.',
   generator: 'Next.js',
-  keywords: ['desenvolvedor full stack', 'engenheiro de software', 'react', 'next.js', 'typescript', 'python', 'django'],
-  authors: [{ name: 'Desenvolvedor' }],
+  keywords: ['desenvolvedor full stack', 'engenheiro de software', 'react', 'next.js', 'typescript', 'python', 'django', 'automação', 'javascript', 'node.js', 'apis rest'],
+  authors: [{ name: 'Guilherme Viana' }],
   icons: {
     icon: [
       {

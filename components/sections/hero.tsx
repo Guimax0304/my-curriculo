@@ -141,7 +141,7 @@ export function Hero() {
                 <span className="text-foreground">Engenheiro de Software</span>
                 <span className="text-muted-foreground"> em formação</span>
                 <br className="hidden sm:block" />
-                <span className="text-primary">Desenvolvedor Full Stack</span>
+                <span className="text-primary">Full Stack e Automações</span>
               </h2>
             </motion.div>
 
